@@ -1,0 +1,3414 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AstraLex — Ta'lim Platformasi</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#050b20;
+    color:white;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:72px;
+    z-index:1000;
+
+    background:rgba(5,11,32,.88);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.nav{
+    max-width:1200px;
+    height:100%;
+    margin:auto;
+    padding:0 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    color:white;
+    text-decoration:none;
+
+    font-size:24px;
+    font-weight:800;
+}
+
+.logoIcon{
+    width:42px;
+    height:42px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:13px;
+
+    background:linear-gradient(
+        135deg,
+        #22d3ee,
+        #6366f1
+    );
+
+    box-shadow:
+        0 0 25px rgba(34,211,238,.3);
+}
+
+.logo span{
+    color:#22d3ee;
+}
+
+.navLinks{
+    display:flex;
+    gap:28px;
+}
+
+.navLinks a{
+    color:#ccd5ee;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.navLinks a:hover{
+    color:#22d3ee;
+}
+
+.navBtn{
+    padding:11px 18px;
+    border-radius:10px;
+
+    color:white;
+    text-decoration:none;
+
+    background:linear-gradient(
+        135deg,
+        #6366f1,
+        #22d3ee
+    );
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:700px;
+    padding-top:72px;
+
+    display:flex;
+    align-items:center;
+
+    background:
+        radial-gradient(
+            circle at 70% 35%,
+            rgba(99,102,241,.25),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(34,211,238,.12),
+            transparent 35%
+        );
+}
+
+.heroInner{
+    max-width:1200px;
+    width:100%;
+    margin:auto;
+    padding:80px 25px;
+
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:50px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:8px 15px;
+    margin-bottom:25px;
+
+    border-radius:30px;
+
+    color:#67e8f9;
+
+    background:rgba(34,211,238,.1);
+
+    border:1px solid rgba(34,211,238,.25);
+
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:clamp(45px,6vw,75px);
+    line-height:1.05;
+
+    letter-spacing:-3px;
+
+    margin-bottom:25px;
+}
+
+.gradient{
+    background:
+        linear-gradient(
+            90deg,
+            #22d3ee,
+            #6366f1,
+            #a78bfa
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.hero p{
+    max-width:600px;
+
+    color:#aeb9d6;
+
+    font-size:17px;
+    line-height:1.8;
+
+    margin-bottom:30px;
+}
+
+.heroButtons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+
+    padding:14px 23px;
+
+    border-radius:11px;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    font-weight:600;
+}
+
+.primary{
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #22d3ee
+        );
+}
+
+.secondary{
+    color:white;
+
+    border:1px solid #39466e;
+}
+
+.planet{
+    width:320px;
+    height:320px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            #dbeafe,
+            #818cf8 20%,
+            #4338ca 50%,
+            #111827 75%
+        );
+
+    box-shadow:
+        0 0 100px rgba(99,102,241,.45);
+
+    animation:float 5s infinite ease-in-out;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-20px);
+    }
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+    max-width:1200px;
+    margin:-50px auto 80px;
+
+    padding:0 25px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:18px;
+
+    position:relative;
+    z-index:5;
+}
+
+.feature{
+    padding:25px;
+
+    border-radius:18px;
+
+    background:rgba(13,26,57,.9);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    transition:.3s;
+}
+
+.feature:hover{
+    transform:translateY(-7px);
+    border-color:#22d3ee;
+}
+
+.featureIcon{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.feature h3{
+    margin-bottom:8px;
+}
+
+.feature p{
+    color:#8491b2;
+    font-size:13px;
+    line-height:1.6;
+}
+
+/* =========================
+   COURSES
+========================= */
+
+.courses{
+    background:#f7f9ff;
+    color:#111827;
+
+    padding:90px 25px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.sectionTitle{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.sectionTitle h2{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.sectionTitle p{
+    color:#64748b;
+}
+
+.courseGrid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+.course{
+    background:white;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    transition:.3s;
+}
+
+.course:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 20px 45px rgba(15,23,42,.12);
+}
+
+.courseImage{
+    height:160px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:55px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #c4b5fd
+        );
+}
+
+.course:nth-child(2) .courseImage{
+    background:
+        linear-gradient(
+            135deg,
+            #fef3c7,
+            #fed7aa
+        );
+}
+
+.course:nth-child(3) .courseImage{
+    background:
+        linear-gradient(
+            135deg,
+            #cffafe,
+            #bfdbfe
+        );
+}
+
+.course:nth-child(4) .courseImage{
+    background:
+        linear-gradient(
+            135deg,
+            #ede9fe,
+            #ddd6fe
+        );
+}
+
+.courseBody{
+    padding:20px;
+}
+
+.tag{
+    display:inline-block;
+
+    padding:5px 9px;
+
+    border-radius:20px;
+
+    background:#eef2ff;
+
+    color:#4f46e5;
+
+    font-size:11px;
+
+    margin-bottom:10px;
+}
+
+.course h3{
+    margin-bottom:8px;
+}
+
+.course p{
+    color:#64748b;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    margin-bottom:18px;
+}
+
+.courseButton{
+    width:100%;
+
+    padding:12px;
+
+    border:0;
+    border-radius:10px;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #22d3ee
+        );
+}
+
+/* =========================
+   LEVELS
+========================= */
+
+.levels{
+    display:none;
+
+    min-height:100vh;
+
+    padding:125px 25px 80px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(99,102,241,.25),
+            transparent 40%
+        );
+}
+
+.levelContainer{
+    max-width:1100px;
+    margin:auto;
+}
+
+.levelHeader{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.levelHeader h2{
+    font-size:42px;
+    margin:20px 0 10px;
+}
+
+.levelHeader p{
+    color:#8e9ab8;
+}
+
+.backButton{
+    padding:10px 18px;
+
+    border:1px solid #39466e;
+
+    border-radius:10px;
+
+    color:white;
+
+    background:transparent;
+
+    cursor:pointer;
+}
+
+.backButton:hover{
+    border-color:#22d3ee;
+    color:#22d3ee;
+}
+
+.levelGrid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:18px;
+}
+
+.levelCard{
+    min-height:260px;
+
+    padding:30px 18px;
+
+    border-radius:20px;
+
+    background:rgba(13,26,57,.9);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.levelCard:hover{
+    transform:translateY(-10px);
+
+    border-color:#22d3ee;
+
+    box-shadow:
+        0 20px 50px rgba(34,211,238,.12);
+}
+
+.levelIcon{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.levelCard span{
+    color:#22d3ee;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+}
+
+.levelCard h3{
+    margin:15px 0 8px;
+}
+
+.levelCard p{
+    color:#9aa7c5;
+
+    margin-bottom:20px;
+}
+
+.levelCard small{
+    color:#64748b;
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz{
+    display:none;
+
+    min-height:100vh;
+
+    padding:120px 25px 80px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(99,102,241,.22),
+            transparent 40%
+        );
+}
+
+.quizContainer{
+    max-width:850px;
+    margin:auto;
+}
+
+.quizHeader{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.quizHeader h2{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.quizHeader p{
+    color:#8e9ab8;
+}
+
+.progressBox{
+    height:8px;
+
+    margin-bottom:30px;
+
+    background:#1a2747;
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+.progress{
+    height:100%;
+    width:10%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #22d3ee,
+            #6366f1
+        );
+
+    transition:.3s;
+}
+
+.questionCard{
+    padding:35px;
+
+    background:rgba(13,26,57,.9);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:20px;
+}
+
+.questionNumber{
+    color:#22d3ee;
+    margin-bottom:15px;
+}
+
+.question{
+    font-size:22px;
+    line-height:1.5;
+
+    margin-bottom:25px;
+}
+
+.answers{
+    display:grid;
+    gap:12px;
+}
+
+.answer{
+    padding:16px;
+
+    text-align:left;
+
+    border-radius:12px;
+
+    border:1px solid #2a385d;
+
+    background:#0b1631;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:.2s;
+}
+
+.answer:hover{
+    border-color:#22d3ee;
+}
+
+.answer.correct{
+    background:#064e3b;
+    border-color:#10b981;
+}
+
+.answer.wrong{
+    background:#7f1d1d;
+    border-color:#ef4444;
+}
+
+.next{
+    display:none;
+
+    margin-top:25px;
+
+    padding:13px 25px;
+
+    border:0;
+
+    border-radius:10px;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #22d3ee
+        );
+}
+
+/* =========================
+   RESULT
+========================= */
+
+.result{
+    display:none;
+
+    text-align:center;
+
+    padding:50px 20px;
+}
+
+.resultIcon{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+.result h2{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.score{
+    font-size:60px;
+
+    font-weight:800;
+
+    color:#22d3ee;
+
+    margin:20px;
+}
+
+.resultButton{
+    padding:13px 22px;
+
+    border:0;
+
+    border-radius:10px;
+
+    color:white;
+
+    background:#6366f1;
+
+    cursor:pointer;
+}
+
+.resultBack{
+    padding:13px 22px;
+
+    border:1px solid #39466e;
+
+    border-radius:10px;
+
+    color:white;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    margin-left:8px;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    padding:80px 25px;
+
+    background:#050b20;
+}
+
+.statsGrid{
+    max-width:900px;
+
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    text-align:center;
+}
+
+.stat h2{
+    font-size:50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #22d3ee,
+            #818cf8
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.stat p{
+    color:#8491b2;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:45px 25px;
+
+    background:#030716;
+
+    text-align:center;
+}
+
+.footerLogo{
+    font-size:22px;
+    font-weight:800;
+
+    margin-bottom:12px;
+}
+
+.footerLogo span{
+    color:#22d3ee;
+}
+
+footer p{
+    color:#64748b;
+    font-size:12px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:950px){
+
+    .navLinks{
+        display:none;
+    }
+
+    .heroInner{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .heroButtons{
+        justify-content:center;
+    }
+
+    .features{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .courseGrid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .levelGrid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .courseGrid{
+        grid-template-columns:1fr;
+    }
+
+    .levelGrid{
+        grid-template-columns:1fr;
+    }
+
+    .statsGrid{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .planet{
+        width:230px;
+        height:230px;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .questionCard{
+        padding:22px;
+    }
+
+    .question{
+        font-size:18px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav>
+
+<div class="nav">
+
+<a href="#" class="logo">
+
+<div class="logoIcon">
+A
+</div>
+
+Astra<span>Lex</span>
+
+</a>
+
+
+<div class="navLinks">
+
+<a href="#home">
+Bosh sahifa
+</a>
+
+<a href="#courses">
+Kurslar
+</a>
+
+<a href="#tests">
+Testlar
+</a>
+
+</div>
+
+
+<a href="#courses" class="navBtn">
+Boshlash
+</a>
+
+</div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+<div class="heroInner">
+
+
+<div>
+
+<span class="badge">
+🚀 Kelajak ta'limi shu yerda
+</span>
+
+
+<h1>
+
+Orzularingizga
+<br>
+
+bir qadam
+
+<span class="gradient">
+yaqinroq
+</span>
+
+</h1>
+
+
+<p>
+
+AstraLex — bilim olishni oson,
+qiziqarli va samarali qiladigan
+zamonaviy ta'lim platformasi.
+
+</p>
+
+
+<div class="heroButtons">
+
+<a href="#courses"
+class="btn primary">
+
+Kurslarni ko‘rish →
+
+</a>
+
+
+<a href="#courses"
+class="btn secondary">
+
+Testlarni boshlash
+
+</a>
+
+</div>
+
+</div>
+
+
+<div>
+
+<div class="planet"></div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FEATURES
+===================================================== -->
+
+<section class="features">
+
+
+<div class="feature">
+
+<div class="featureIcon">
+📚
+</div>
+
+<h3>
+Online kurslar
+</h3>
+
+<p>
+Turli fanlardan zamonaviy
+ta'lim materiallari.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="featureIcon">
+📝
+</div>
+
+<h3>
+Testlar
+</h3>
+
+<p>
+Har bir levelda 10 ta test.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="featureIcon">
+🎯
+</div>
+
+<h3>
+5 ta level
+</h3>
+
+<p>
+Osondan qiyingacha rivojlaning.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="featureIcon">
+🏆
+</div>
+
+<h3>
+Natijalar
+</h3>
+
+<p>
+Natijangizni darhol ko‘ring.
+</p>
+
+</div>
+
+
+</section>
+
+
+<!-- =====================================================
+     COURSES
+===================================================== -->
+
+<section class="courses" id="courses">
+
+<div class="container">
+
+
+<div class="sectionTitle">
+
+<h2>
+📚 Kurslar
+</h2>
+
+<p>
+Fanni tanlang va o‘zingizga mos levelni boshlang
+</p>
+
+</div>
+
+
+<div class="courseGrid">
+
+
+<!-- ENGLISH -->
+
+<div class="course">
+
+<div class="courseImage">
+🇬🇧
+</div>
+
+<div class="courseBody">
+
+<span class="tag">
+English
+</span>
+
+<h3>
+Ingliz tili
+</h3>
+
+<p>
+A1 dan C1 gacha.
+5 ta level va 50 ta test.
+</p>
+
+<button
+class="courseButton"
+onclick="chooseSubject('english')">
+
+Level'larni ko‘rish →
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- MATH -->
+
+<div class="course">
+
+<div class="courseImage">
+📐
+</div>
+
+<div class="courseBody">
+
+<span class="tag">
+Matematika
+</span>
+
+<h3>
+Matematika
+</h3>
+
+<p>
+Boshlang‘ichdan murakkab
+masalalargacha.
+</p>
+
+<button
+class="courseButton"
+onclick="chooseSubject('math')">
+
+Level'larni ko‘rish →
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PYTHON -->
+
+<div class="course">
+
+<div class="courseImage">
+🐍
+</div>
+
+<div class="courseBody">
+
+<span class="tag">
+Programming
+</span>
+
+<h3>
+Python
+</h3>
+
+<p>
+Python asoslaridan
+murakkab mavzulargacha.
+</p>
+
+<button
+class="courseButton"
+onclick="chooseSubject('python')">
+
+Level'larni ko‘rish →
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- GENERAL -->
+
+<div class="course">
+
+<div class="courseImage">
+🎓
+</div>
+
+<div class="courseBody">
+
+<span class="tag">
+General
+</span>
+
+<h3>
+Umumiy bilim
+</h3>
+
+<p>
+Turli fanlardan 5 darajali
+testlar.
+</p>
+
+<button
+class="courseButton"
+onclick="chooseSubject('general')">
+
+Level'larni ko‘rish →
+
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     LEVELS
+===================================================== -->
+
+<section class="levels" id="levels">
+
+<div class="levelContainer">
+
+
+<div class="levelHeader">
+
+<button
+class="backButton"
+onclick="backToCourses()">
+
+← Fanlarga qaytish
+
+</button>
+
+
+<h2 id="subjectTitle">
+🇬🇧 Ingliz tili
+</h2>
+
+
+<p>
+Levelni tanlang. Yuqoriga chiqqaningiz sari testlar qiyinlashadi.
+</p>
+
+</div>
+
+
+<div class="levelGrid">
+
+
+<div class="levelCard"
+onclick="startLevel(1)">
+
+<div class="levelIcon">
+🟢
+</div>
+
+<span>
+LEVEL 1
+</span>
+
+<h3>
+Beginner
+</h3>
+
+<p>
+Juda oson
+</p>
+
+<small>
+10 ta test
+</small>
+
+</div>
+
+
+<div class="levelCard"
+onclick="startLevel(2)">
+
+<div class="levelIcon">
+🟢
+</div>
+
+<span>
+LEVEL 2
+</span>
+
+<h3>
+Elementary
+</h3>
+
+<p>
+Oson
+</p>
+
+<small>
+10 ta test
+</small>
+
+</div>
+
+
+<div class="levelCard"
+onclick="startLevel(3)">
+
+<div class="levelIcon">
+🟡
+</div>
+
+<span>
+LEVEL 3
+</span>
+
+<h3>
+Intermediate
+</h3>
+
+<p>
+O‘rta
+</p>
+
+<small>
+10 ta test
+</small>
+
+</div>
+
+
+<div class="levelCard"
+onclick="startLevel(4)">
+
+<div class="levelIcon">
+🟠
+</div>
+
+<span>
+LEVEL 4
+</span>
+
+<h3>
+Upper-Intermediate
+</h3>
+
+<p>
+Qiyin
+</p>
+
+<small>
+10 ta test
+</small>
+
+</div>
+
+
+<div class="levelCard"
+onclick="startLevel(5)">
+
+<div class="levelIcon">
+🔴
+</div>
+
+<span>
+LEVEL 5
+</span>
+
+<h3>
+Advanced
+</h3>
+
+<p>
+Juda qiyin
+</p>
+
+<small>
+10 ta test
+</small>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     QUIZ
+===================================================== -->
+
+<section class="quiz" id="tests">
+
+<div class="quizContainer">
+
+
+<div class="quizHeader">
+
+<h2 id="quizTitle">
+Test
+</h2>
+
+<p id="quizDescription">
+10 ta savol
+</p>
+
+</div>
+
+
+<div class="progressBox">
+
+<div
+class="progress"
+id="progress">
+
+</div>
+
+</div>
+
+
+<div class="questionCard" id="questionCard">
+
+
+<div
+class="questionNumber"
+id="questionNumber">
+
+Savol 1 / 10
+
+</div>
+
+
+<div
+class="question"
+id="question">
+
+Savol...
+
+</div>
+
+
+<div
+class="answers"
+id="answers">
+
+</div>
+
+
+<button
+class="next"
+id="nextButton"
+onclick="nextQuestion()">
+
+Keyingi savol →
+
+</button>
+
+
+</div>
+
+
+<div class="result" id="result">
+
+<div class="resultIcon">
+🎉
+</div>
+
+<h2>
+Test yakunlandi!
+</h2>
+
+<p>
+Sizning natijangiz
+</p>
+
+<div
+class="score"
+id="score">
+
+0/10
+
+</div>
+
+
+<button
+class="resultButton"
+onclick="restartQuiz()">
+
+🔄 Qayta ishlash
+
+</button>
+
+
+<button
+class="resultBack"
+onclick="backToLevels()">
+
+← Level'lar
+
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<section class="stats">
+
+<div class="statsGrid">
+
+
+<div class="stat">
+
+<h2>
+20+
+</h2>
+
+<p>
+Level
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<h2>
+200+
+</h2>
+
+<p>
+Test savollari
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<h2>
+4
+</h2>
+
+<p>
+Fan
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="footerLogo">
+
+🚀 Astra<span>Lex</span>
+
+</div>
+
+<p>
+© 2026 AstraLex — Barcha huquqlar himoyalangan.
+</p>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   ASTRALEX TEST DATABASE
+===================================================== */
+
+/*
+   Har bir fan:
+   5 level
+
+   Har bir level:
+   10 savol
+
+   Ingliz tili:
+   A1 → A2 → B1 → B2 → C1
+*/
+
+
+const questions = {
+
+
+/* =====================================================
+   ENGLISH
+===================================================== */
+
+english: {
+
+1: [
+
+{
+q:"I ___ a student.",
+a:["am","is","are","be"],
+c:0
+},
+
+{
+q:"She ___ my friend.",
+a:["am","is","are","be"],
+c:1
+},
+
+{
+q:"What is the opposite of 'big'?",
+a:["small","long","fast","high"],
+c:0
+},
+
+{
+q:"I ___ a book.",
+a:["have","has","having","had"],
+c:0
+},
+
+{
+q:"What color is the sky?",
+a:["Green","Blue","Black","Red"],
+c:1
+},
+
+{
+q:"He ___ football.",
+a:["play","plays","playing","played"],
+c:1
+},
+
+{
+q:"There ___ a cat.",
+a:["am","are","is","be"],
+c:2
+},
+
+{
+q:"What is 'kitob' in English?",
+a:["Pen","Book","Table","Door"],
+c:1
+},
+
+{
+q:"I ___ from Uzbekistan.",
+a:["am","is","are","be"],
+c:0
+},
+
+{
+q:"15 in English is...",
+a:["Fifteen","Fifty","Five","Fourteen"],
+c:0
+}
+
+],
+
+
+2: [
+
+{
+q:"She ___ to school every day.",
+a:["go","goes","going","gone"],
+c:1
+},
+
+{
+q:"We ___ English yesterday.",
+a:["study","studies","studied","studying"],
+c:2
+},
+
+{
+q:"There aren't ___ apples.",
+a:["some","any","much","a"],
+c:1
+},
+
+{
+q:"I am ___ than my brother.",
+a:["tall","taller","tallest","more tall"],
+c:1
+},
+
+{
+q:"She is ___ TV now.",
+a:["watch","watches","watching","watched"],
+c:2
+},
+
+{
+q:"We ___ visit London next year.",
+a:["are going to","went","were","have"],
+c:0
+},
+
+{
+q:"How ___ money do you have?",
+a:["many","much","few","any"],
+c:1
+},
+
+{
+q:"I have lived here ___ 2020.",
+a:["for","since","at","from"],
+c:1
+},
+
+{
+q:"What is the past of 'go'?",
+a:["goed","went","gone","going"],
+c:1
+},
+
+{
+q:"He doesn't ___ coffee.",
+a:["likes","like","liked","liking"],
+c:1
+}
+
+],
+
+
+3: [
+
+{
+q:"If I ___ time, I will help you.",
+a:["have","had","will have","having"],
+c:0
+},
+
+{
+q:"She has ___ finished her homework.",
+a:["yet","already","still","ever"],
+c:1
+},
+
+{
+q:"I have been studying English ___ three years.",
+a:["since","for","from","during"],
+c:1
+},
+
+{
+q:"He was tired because he ___ all day.",
+a:["worked","had been working","works","has worked"],
+c:1
+},
+
+{
+q:"This book is ___ than that one.",
+a:["interesting","more interesting","most interesting","interest"],
+c:1
+},
+
+{
+q:"She asked me where I ___.",
+a:["live","lived","am living","have lived"],
+c:1
+},
+
+{
+q:"You ___ smoke here. It's forbidden.",
+a:["don't have to","mustn't","shouldn't have","couldn't"],
+c:1
+},
+
+{
+q:"I wish I ___ more free time.",
+a:["have","had","will have","having"],
+c:1
+},
+
+{
+q:"The movie ___ by millions of people.",
+a:["watched","was watched","watch","has watch"],
+c:1
+},
+
+{
+q:"He is interested ___ technology.",
+a:["on","at","in","for"],
+c:2
+}
+
+],
+
+
+4: [
+
+{
+q:"Had I known, I ___ you earlier.",
+a:["would tell","would have told","will tell","told"],
+c:1
+},
+
+{
+q:"No sooner had he arrived ___ it started raining.",
+a:["when","than","then","that"],
+c:1
+},
+
+{
+q:"She denied ___ the money.",
+a:["take","to take","taking","taken"],
+c:2
+},
+
+{
+q:"The project needs to be ___ immediately.",
+a:["carried out","carried on","carried away","carried off"],
+c:0
+},
+
+{
+q:"He speaks English as though he ___ a native speaker.",
+a:["is","were","has been","will be"],
+c:1
+},
+
+{
+q:"The manager insisted that the report ___ completed today.",
+a:["is","was","be","being"],
+c:2
+},
+
+{
+q:"Despite ___ tired, she continued working.",
+a:["be","being","was","been"],
+c:1
+},
+
+{
+q:"The policy is aimed ___ reducing pollution.",
+a:["at","on","to","for"],
+c:0
+},
+
+{
+q:"He is believed ___ abroad.",
+a:["to live","living","live","lived"],
+c:0
+},
+
+{
+q:"Had it not been for your help, I ___ failed.",
+a:["would have","will have","had","would"],
+c:0
+}
+
+],
+
+
+5: [
+
+{
+q:"Were it not for his intervention, the negotiations ___ collapsed.",
+a:["will have","would have","had","have"],
+c:1
+},
+
+{
+q:"The proposal, ___ controversial, was accepted.",
+a:["although","despite","however","whereas"],
+c:0
+},
+
+{
+q:"Little ___ that the decision would have consequences.",
+a:["he knew","did he know","he knows","knows he"],
+c:1
+},
+
+{
+q:"It is imperative that every applicant ___ the form correctly.",
+a:["completes","complete","completed","will complete"],
+c:1
+},
+
+{
+q:"The findings call ___ the traditional theory.",
+a:["into question","on question","for question","at question"],
+c:0
+},
+
+{
+q:"Not until the evidence was examined ___ the truth become apparent.",
+a:["did","had","was","has"],
+c:0
+},
+
+{
+q:"His argument is fundamentally ___ with the evidence.",
+a:["inconsistent","inconsistency","inconsistently","inconsistentness"],
+c:0
+},
+
+{
+q:"The company is on the ___ of bankruptcy.",
+a:["edge","border","limit","boundary"],
+c:0
+},
+
+{
+q:"She gave a remarkably ___ analysis.",
+a:["insightful","insight","insighted","insightfully"],
+c:0
+},
+
+{
+q:"The evidence was insufficient to ___ his claim.",
+a:["substantiate","substantial","substantially","substance"],
+c:0
+}
+
+]
+
+},
+
+
+/* =====================================================
+   MATHEMATICS
+===================================================== */
+
+math: {
+
+1:[
+
+{
+q:"5 + 7 = ?",
+a:["10","11","12","13"],
+c:2
+},
+
+{
+q:"10 - 4 = ?",
+a:["4","5","6","7"],
+c:2
+},
+
+{
+q:"3 × 4 = ?",
+a:["7","10","12","14"],
+c:2
+},
+
+{
+q:"20 ÷ 5 = ?",
+a:["2","4","5","10"],
+c:1
+},
+
+{
+q:"8 + 2 = ?",
+a:["9","10","11","12"],
+c:1
+},
+
+{
+q:"15 - 5 = ?",
+a:["5","10","15","20"],
+c:1
+},
+
+{
+q:"2 × 6 = ?",
+a:["8","10","12","14"],
+c:2
+},
+
+{
+q:"18 ÷ 3 = ?",
+a:["5","6","7","8"],
+c:1
+},
+
+{
+q:"7 + 8 = ?",
+a:["13","14","15","16"],
+c:2
+},
+
+{
+q:"100 - 25 = ?",
+a:["65","70","75","80"],
+c:2
+}
+
+],
+
+
+2:[
+
+{
+q:"12 × 3 = ?",
+a:["24","30","36","40"],
+c:2
+},
+
+{
+q:"100 ÷ 4 = ?",
+a:["20","25","30","40"],
+c:1
+},
+
+{
+q:"9 × 9 = ?",
+a:["72","81","90","99"],
+c:1
+},
+
+{
+q:"√64 = ?",
+a:["6","7","8","9"],
+c:2
+},
+
+{
+q:"2³ = ?",
+a:["4","6","8","9"],
+c:2
+},
+
+{
+q:"50 ning 20% i?",
+a:["5","10","15","20"],
+c:1
+},
+
+{
+q:"x + 5 = 12. x = ?",
+a:["5","6","7","8"],
+c:2
+},
+
+{
+q:"1 kilometr necha metr?",
+a:["10","100","1000","10000"],
+c:2
+},
+
+{
+q:"3² + 4² = ?",
+a:["12","20","25","30"],
+c:2
+},
+
+{
+q:"200 ning 25% i?",
+a:["25","40","50","75"],
+c:2
+}
+
+],
+
+
+3:[
+
+{
+q:"2x + 6 = 14. x = ?",
+a:["2","3","4","5"],
+c:2
+},
+
+{
+q:"x² = 49. Musbat x?",
+a:["5","6","7","8"],
+c:2
+},
+
+{
+q:"3/4 + 1/4 = ?",
+a:["1/2","1","3/4","2"],
+c:1
+},
+
+{
+q:"15% of 200 = ?",
+a:["20","25","30","35"],
+c:2
+},
+
+{
+q:"5x = 45. x = ?",
+a:["7","8","9","10"],
+c:2
+},
+
+{
+q:"A triangle's angles total?",
+a:["90°","180°","270°","360°"],
+c:1
+},
+
+{
+q:"If x=3, what is 2x²?",
+a:["12","18","20","24"],
+c:1
+},
+
+{
+q:"√144 = ?",
+a:["10","11","12","14"],
+c:2
+},
+
+{
+q:"0.5 as a fraction?",
+a:["1/4","1/2","2/3","3/4"],
+c:1
+},
+
+{
+q:"7² - 5² = ?",
+a:["20","24","25","30"],
+c:1
+}
+
+],
+
+
+4:[
+
+{
+q:"x² - 9 = 0. Positive x?",
+a:["1","2","3","4"],
+c:2
+},
+
+{
+q:"2x + 5 = 17. x = ?",
+a:["5","6","7","8"],
+c:1
+},
+
+{
+q:"If f(x)=2x+1, f(4)=?",
+a:["7","8","9","10"],
+c:2
+},
+
+{
+q:"3x² = 27. Positive x?",
+a:["2","3","4","5"],
+c:1
+},
+
+{
+q:"A line has slope 2 and y-intercept 3. Equation?",
+a:["y=2x+3","y=3x+2","y=2x-3","y=x+3"],
+c:0
+},
+
+{
+q:"(x+2)(x+3) = ?",
+a:["x²+5x+6","x²+6x+5","x²+4x+6","x²+5x+5"],
+c:0
+},
+
+{
+q:"What is 2⁵?",
+a:["16","24","32","64"],
+c:2
+},
+
+{
+q:"log₁₀(100) = ?",
+a:["1","2","3","10"],
+c:1
+},
+
+{
+q:"If 3a=18, a=?",
+a:["4","5","6","7"],
+c:2
+},
+
+{
+q:"The derivative of x² is?",
+a:["x","2x","x²","2"],
+c:1
+}
+
+],
+
+
+5:[
+
+{
+q:"If x² - 5x + 6 = 0, x values are?",
+a:["1,6","2,3","3,4","1,5"],
+c:1
+},
+
+{
+q:"Derivative of sin(x)?",
+a:["cos(x)","-cos(x)","sin(x)","tan(x)"],
+c:0
+},
+
+{
+q:"∫2x dx = ?",
+a:["x²+C","2x²+C","x+C","2+C"],
+c:0
+},
+
+{
+q:"If log₂(x)=5, x=?",
+a:["10","16","25","32"],
+c:3
+},
+
+{
+q:"Limit of 1/x as x→∞?",
+a:["0","1","∞","-1"],
+c:0
+},
+
+{
+q:"The roots of x²+4x+4 are?",
+a:["2,2","-2,-2","4,4","-4,-4"],
+c:1
+},
+
+{
+q:"What is the determinant of [[1,2],[3,4]]?",
+a:["-2","2","4","10"],
+c:0
+},
+
+{
+q:"If sin(x)=1, one solution is?",
+a:["0","π/4","π/2","π"],
+c:2
+},
+
+{
+q:"The derivative of eˣ is?",
+a:["1","x","eˣ","xeˣ"],
+c:2
+},
+
+{
+q:"What is 10⁰?",
+a:["0","1","10","undefined"],
+c:1
+}
+
+]
+
+},
+
+
+/* =====================================================
+   PYTHON
+===================================================== */
+
+python: {
+
+1:[
+
+{
+q:"Python fayli qanday tugaydi?",
+a:[".html",".py",".css",".js"],
+c:1
+},
+
+{
+q:"Ekranga chiqarish funksiyasi?",
+a:["print()","show()","write()","display()"],
+c:0
+},
+
+{
+q:"O‘zgaruvchi qaysi?",
+a:["x=10","int x=10","var x=10","let x=10"],
+c:0
+},
+
+{
+q:"List qanday yoziladi?",
+a:["(1,2)","{1,2}","[1,2]","<1,2>"],
+c:2
+},
+
+{
+q:"Izoh belgisi?",
+a:["//","#","--","/*"],
+c:1
+},
+
+{
+q:"Boolean qiymatlar?",
+a:["Yes/No","True/False","1/2","On/Off"],
+c:1
+},
+
+{
+q:"Matn turi?",
+a:["str","int","float","list"],
+c:0
+},
+
+{
+q:"Butun son turi?",
+a:["str","int","float","bool"],
+c:1
+},
+
+{
+q:"print(2+3) natija?",
+a:["4","5","6","23"],
+c:1
+},
+
+{
+q:"if nima?",
+a:["sikl","shart","list","funksiya"],
+c:1
+}
+
+],
+
+
+2:[
+
+{
+q:"len('Hello') = ?",
+a:["4","5","6","10"],
+c:1
+},
+
+{
+q:"for nima uchun?",
+a:["sikl","shart","klass","import"],
+c:0
+},
+
+{
+q:"range(5) nechta qiymat beradi?",
+a:["4","5","6","10"],
+c:1
+},
+
+{
+q:"Python'da funksiya qanday yaratiladi?",
+a:["function","def","fun","create"],
+c:1
+},
+
+{
+q:"List oxiriga element qo‘shish?",
+a:["add()","append()","push()","insertEnd()"],
+c:1
+},
+
+{
+q:"10 > 5 natija?",
+a:["True","False","10","5"],
+c:0
+},
+
+{
+q:"Python'da AND operatori?",
+a:["&&","and","AND()","&and"],
+c:1
+},
+
+{
+q:"Python'da OR operatori?",
+a:["||","or","OR()","|or"],
+c:1
+},
+
+{
+q:"x = '5' qanday tur?",
+a:["int","str","float","bool"],
+c:1
+},
+
+{
+q:"input() nima qiladi?",
+a:["Ma'lumot oladi","O‘chiradi","Hisoblaydi","Chop etadi"],
+c:0
+}
+
+],
+
+
+3:[
+
+{
+q:"Dictionary qanday belgilanadi?",
+a:["[]","{}","()","<>"],
+c:1
+},
+
+{
+q:"try/except nima uchun?",
+a:["xatolarni boshqarish","sikl","list","import"],
+c:0
+},
+
+{
+q:"class nima yaratadi?",
+a:["obyekt turi","list","string","loop"],
+c:0
+},
+
+{
+q:"inheritance nima?",
+a:["meros olish","o‘chirish","import","sikl"],
+c:0
+},
+
+{
+q:"lambda nima?",
+a:["anonim funksiya","class","loop","module"],
+c:0
+},
+
+{
+q:"set qanday xususiyatga ega?",
+a:["takroriy qiymatlar","unique qiymatlar","faqat string","faqat int"],
+c:1
+},
+
+{
+q:"*args nima uchun?",
+a:["ko‘p argument","xato","string","class"],
+c:0
+},
+
+{
+q:"**kwargs nima?",
+a:["keyword argumentlar","list","string","loop"],
+c:0
+},
+
+{
+q:"import nima qiladi?",
+a:["modul yuklaydi","o‘chiradi","chop etadi","sikl"],
+c:0
+},
+
+{
+q:"return nima qiladi?",
+a:["qiymat qaytaradi","siklni boshlaydi","xato beradi","import qiladi"],
+c:0
+}
+
+],
+
+
+4:[
+
+{
+q:"Decorator nima?",
+a:["funksiyani o‘rab kengaytiradi","list","database","loop"],
+c:0
+},
+
+{
+q:"Generator odatda nima bilan yaratiladi?",
+a:["yield","return","generate","gen"],
+c:0
+},
+
+{
+q:"__init__ nima?",
+a:["constructor","loop","module","decorator"],
+c:0
+},
+
+{
+q:"PEP 8 nima?",
+a:["Python style guide","database","framework","compiler"],
+c:0
+},
+
+{
+q:"virtualenv nima uchun?",
+a:["izolyatsiyalangan muhit","server","database","editor"],
+c:0
+},
+
+{
+q:"pip nima?",
+a:["package manager","compiler","IDE","database"],
+c:0
+},
+
+{
+q:"async/await nima uchun?",
+a:["asinxron dasturlash","list","class","string"],
+c:0
+},
+
+{
+q:"JSON bilan ishlash uchun mashhur modul?",
+a:["json","data","object","file"],
+c:0
+},
+
+{
+q:"OOP ning maqsadi?",
+a:["obyektga yo‘naltirilgan dasturlash","web dizayn","database","network"],
+c:0
+},
+
+{
+q:"Recursion nima?",
+a:["funksiyaning o‘zini chaqirishi","loop emas","database","import"],
+c:0
+}
+
+],
+
+
+5:[
+
+{
+q:"Python'da GIL nimani cheklaydi?",
+a:["CPython'dagi thread execution","RAM","disk","network"],
+c:0
+},
+
+{
+q:"Metaclass nima?",
+a:["classlarning klassi","function","module","variable"],
+c:0
+},
+
+{
+q:"MRO nimani anglatadi?",
+a:["Method Resolution Order","Memory Read Object","Module Runtime Order","Main Return Object"],
+c:0
+},
+
+{
+q:"__slots__ nima uchun ishlatilishi mumkin?",
+a:["instance attribute xotirasini optimallashtirish","database","loop","network"],
+c:0
+},
+
+{
+q:"Context manager odatda qaysi protokolga ega?",
+a:["__enter__ va __exit__","__start__ va __stop__","open va close","begin va end"],
+c:0
+},
+
+{
+q:"Iterator qaysi metodga ega?",
+a:["__next__","__move__","__iterate__","__loop__"],
+c:0
+},
+
+{
+q:"Python'dagi descriptor protokoli qaysi metodlarni o‘z ichiga oladi?",
+a:["__get__, __set__, __delete__","get,set","read,write","open,close"],
+c:0
+},
+
+{
+q:"functools.lru_cache nima qiladi?",
+a:["funksiya natijalarini cache qiladi","database yaratadi","loop qiladi","server ishga tushiradi"],
+c:0
+},
+
+{
+q:"Type hinting asosan nima uchun?",
+a:["koddagi turlarni ko‘rsatish","tezlikni majburan oshirish","database","UI"],
+c:0
+},
+
+{
+q:"asyncio asosan nima uchun ishlatiladi?",
+a:["asinxron I/O","rasm tahrirlash","database yaratish","HTML"],
+c:0
+}
+
+]
+
+},
+
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+general: {
+
+1:[
+
+{
+q:"O‘zbekiston poytaxti?",
+a:["Samarqand","Buxoro","Toshkent","Xiva"],
+c:2
+},
+
+{
+q:"Yerning tabiiy yo‘ldoshi?",
+a:["Quyosh","Oy","Mars","Yupiter"],
+c:1
+},
+
+{
+q:"Suv formulasi?",
+a:["CO2","O2","H2O","NaCl"],
+c:2
+},
+
+{
+q:"Bir yil nechta oy?",
+a:["10","11","12","13"],
+c:2
+},
+
+{
+q:"Quyosh nima?",
+a:["Sayyora","Yulduz","Oy","Asteroid"],
+c:1
+},
+
+{
+q:"Eng katta okean?",
+a:["Atlantika","Hind","Tinch","Arktika"],
+c:2
+},
+
+{
+q:"HTML nima uchun?",
+a:["Web sahifa","Video","Audio","Database"],
+c:0
+},
+
+{
+q:"CSS nima uchun?",
+a:["Dizayn","Server","Audio","Database"],
+c:0
+},
+
+{
+q:"CPU nima?",
+a:["Protsessor","Monitor","Sichqoncha","Klaviatura"],
+c:0
+},
+
+{
+q:"Alisher Navoiy kim?",
+a:["Shoir","Sportchi","Muhandis","Astronom"],
+c:0
+}
+
+],
+
+
+2:[
+
+{
+q:"O‘zbekiston mustaqillik kuni?",
+a:["1-yanvar","8-dekabr","1-sentabr","9-may"],
+c:2
+},
+
+{
+q:"Dunyodagi eng katta qit'a?",
+a:["Afrika","Osiyo","Yevropa","Avstraliya"],
+c:1
+},
+
+{
+q:"Fotosintez uchun asosiy gaz?",
+a:["CO2","O2","N2","H2"],
+c:0
+},
+
+{
+q:"Elektr toki birligi?",
+a:["Volt","Amper","Ohm","Vatt"],
+c:1
+},
+
+{
+q:"WWW nimani anglatadi?",
+a:["World Wide Web","World Web Window","Web World Wide","Wide World Web"],
+c:0
+},
+
+{
+q:"Yer Quyosh atrofini taxminan qancha vaqtda aylanadi?",
+a:["24 soat","30 kun","365 kun","12 soat"],
+c:2
+},
+
+{
+q:"Inson tanasida qonni haydaydigan organ?",
+a:["O‘pka","Yurak","Jigar","Buyrak"],
+c:1
+},
+
+{
+q:"O‘zbekistonning pul birligi?",
+a:["Dollar","So‘m","Rubl","Yuan"],
+c:1
+},
+
+{
+q:"Eng katta sayyora?",
+a:["Yer","Mars","Yupiter","Venera"],
+c:2
+},
+
+{
+q:"Python dasturlash tilini kim yaratgan?",
+a:["Guido van Rossum","Bill Gates","Steve Jobs","Mark Zuckerberg"],
+c:0
+}
+
+],
+
+
+3:[
+
+{
+q:"Nyutonning ikkinchi qonuni?",
+a:["F=ma","E=mc²","V=IR","P=VI"],
+c:0
+},
+
+{
+q:"DNK nimani saqlaydi?",
+a:["Genetik ma'lumot","Elektr","Suv","Energiya"],
+c:0
+},
+
+{
+q:"Atmosferadagi eng ko‘p gaz?",
+a:["O2","CO2","N2","H2"],
+c:2
+},
+
+{
+q:"IPv4 manzil necha bit?",
+a:["16","32","64","128"],
+c:1
+},
+
+{
+q:"Elektr qarshilik birligi?",
+a:["Volt","Amper","Ohm","Joul"],
+c:2
+},
+
+{
+q:"Mitochondria asosiy vazifasi?",
+a:["ATP energiya ishlab chiqarish","DNKni yo‘qotish","Qon haydash","Ovqat hazm qilish"],
+c:0
+},
+
+{
+q:"Fotosintezning asosiy mahsulotlaridan biri?",
+a:["Glyukoza","Temir","Tuz","Azot"],
+c:0
+},
+
+{
+q:"TCP qaysi turdagi protokol?",
+a:["Transport","Grafik","Audio","Fayl"],
+c:0
+},
+
+{
+q:"Algorithm nima?",
+a:["Muammoni yechish ketma-ketligi","Rasm","Database","Monitor"],
+c:0
+},
+
+{
+q:"Machine Learning nima?",
+a:["Ma'lumotlardan o‘rganish","Faqat dizayn","Faqat hardware","Audio"],
+c:0
+}
+
+],
+
+
+4:[
+
+{
+q:"Einsteinning mashhur tenglamasi?",
+a:["E=mc²","F=ma","V=IR","a²+b²=c²"],
+c:0
+},
+
+{
+q:"Big-O O(n²) nimani bildiradi?",
+a:["Kvadratik o‘sish","Doimiy","Logarifmik","Chiziqli"],
+c:0
+},
+
+{
+q:"HTTPS nimani ta'minlash uchun ishlatiladi?",
+a:["Shifrlangan web aloqa","Video","Audio","Database"],
+c:0
+},
+
+{
+q:"SQL asosan nima uchun?",
+a:["Ma'lumotlar bazasi","Grafika","Audio","OS"],
+c:0
+},
+
+{
+q:"DNA ning ikki spiral modelini kimlar mashhur qilgan?",
+a:["Watson va Crick","Newton va Einstein","Turing va Shannon","Darwin va Wallace"],
+c:0
+},
+
+{
+q:"Quantum computing asosiy birligi?",
+a:["Qubit","Bit","Byte","Pixel"],
+c:0
+},
+
+{
+q:"OSI modelida nechta qatlam bor?",
+a:["5","6","7","8"],
+c:2
+},
+
+{
+q:"RAM qanday xotira?",
+a:["Tezkor","Doimiy","Faqat tashqi","Optik"],
+c:0
+},
+
+{
+q:"Compiler nima qiladi?",
+a:["Kodni tarjima qiladi","Internet beradi","Rasm chizadi","Audio yozadi"],
+c:0
+},
+
+{
+q:"API nima?",
+a:["Dasturlar o‘rtasidagi interfeys","Monitor","Keyboard","Database"],
+c:0
+}
+
+],
+
+
+5:[
+
+{
+q:"Shannon entropiyasi nimani o‘lchaydi?",
+a:["Noaniqlik/axborot","Massa","Tezlik","Harorat"],
+c:0
+},
+
+{
+q:"RSA nimaga asoslanadi?",
+a:["Ochiq kalitli kriptografiya","Rasm","Audio","Database"],
+c:0
+},
+
+{
+q:"CAP theorem qaysi tizimlar bilan bog‘liq?",
+a:["Distributed systems","Graphics","Audio","Operating systems only"],
+c:0
+},
+
+{
+q:"Machine learning'da overfitting nima?",
+a:["Modelning training ma'lumotiga haddan tashqari moslashishi","Modelning umuman o‘rganmasligi","Internet uzilishi","RAM tugashi"],
+c:0
+},
+
+{
+q:"Hash funksiyaning muhim xususiyati?",
+a:["Bir yo‘nalishlilik","Har doim qaytariluvchanlik","Faqat rasm","Faqat audio"],
+c:0
+},
+
+{
+q:"Blockchain ma'lumotlari odatda qanday bog‘lanadi?",
+a:["Kriptografik hashlar bilan","Faqat ranglar bilan","Audio bilan","CSS bilan"],
+c:0
+},
+
+{
+q:"TCP congestion control nima uchun?",
+a:["Tarmoq tiqilinchini boshqarish","Diskni formatlash","Rasm chizish","Audio"],
+c:0
+},
+
+{
+q:"Neural networkdagi weight nima?",
+a:["O‘rganiladigan parametr","Monitor","Fayl","Server"],
+c:0
+},
+
+{
+q:"Compiler optimization maqsadi?",
+a:["Dastur samaradorligini yaxshilash","Rasm chizish","Internet ulash","Audio"],
+c:0
+},
+
+{
+q:"Public key kriptografiyada private key nima uchun?",
+a:["Maxfiy operatsiyalar uchun","Rasm","HTML","CSS"],
+c:0
+}
+
+]
+
+}
+
+};
+
+
+/* =====================================================
+   GLOBAL VARIABLES
+===================================================== */
+
+let currentSubject = "";
+
+let currentLevel = 1;
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let answered = false;
+
+let currentQuestions = [];
+
+
+/* =====================================================
+   SUBJECT TANLASH
+===================================================== */
+
+function chooseSubject(subject){
+
+    currentSubject = subject;
+
+    const names = {
+
+        english:"🇬🇧 Ingliz tili",
+
+        math:"📐 Matematika",
+
+        python:"🐍 Python",
+
+        general:"🎓 Umumiy bilim"
+
+    };
+
+    document.getElementById("subjectTitle")
+        .textContent = names[subject];
+
+    document.querySelector(".courses")
+        .style.display = "none";
+
+    document.querySelector(".levels")
+        .style.display = "block";
+
+    document.getElementById("levels")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+}
+
+
+/* =====================================================
+   LEVEL BOSHLASH
+===================================================== */
+
+function startLevel(level){
+
+    currentLevel = level;
+
+    currentQuestions =
+        questions[currentSubject][level];
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    answered = false;
+
+
+    const levelNames = {
+
+        1:"Level 1 — Boshlang‘ich",
+
+        2:"Level 2 — Elementary",
+
+        3:"Level 3 — Intermediate",
+
+        4:"Level 4 — Upper-Intermediate",
+
+        5:"Level 5 — Advanced"
+
+    };
+
+
+    document.getElementById("quizTitle")
+        .textContent =
+        `${levelNames[level]}`;
+
+
+    document.getElementById("quizDescription")
+        .textContent =
+        `${currentQuestions.length} ta savol`;
+
+
+    document.querySelector(".levels")
+        .style.display = "none";
+
+
+    document.querySelector(".quiz")
+        .style.display = "block";
+
+
+    document.getElementById("questionCard")
+        .style.display = "block";
+
+
+    document.getElementById("result")
+        .style.display = "none";
+
+
+    showQuestion();
+
+
+    document.getElementById("tests")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+}
+
+
+/* =====================================================
+   SAVOLNI KO‘RSATISH
+===================================================== */
+
+function showQuestion(){
+
+    answered = false;
+
+    const q =
+        currentQuestions[currentQuestion];
+
+
+    document.getElementById("questionNumber")
+        .textContent =
+        `Savol ${currentQuestion+1} / ${currentQuestions.length}`;
+
+
+    document.getElementById("question")
+        .textContent = q.q;
+
+
+    const answers =
+        document.getElementById("answers");
+
+
+    answers.innerHTML = "";
+
+
+    q.a.forEach((answer,index)=>{
+
+        const button =
+            document.createElement("button");
+
+
+        button.className = "answer";
+
+
+        button.textContent =
+            `${String.fromCharCode(65+index)}. ${answer}`;
+
+
+        button.onclick =
+            () => selectAnswer(index,button);
+
+
+        answers.appendChild(button);
+
+    });
+
+
+    document.getElementById("nextButton")
+        .style.display = "none";
+
+
+    document.getElementById("progress")
+        .style.width =
+        `${((currentQuestion+1)/currentQuestions.length)*100}%`;
+}
+
+
+/* =====================================================
+   JAVOBNI TEKSHIRISH
+===================================================== */
+
+function selectAnswer(index,button){
+
+    if(answered) return;
+
+    answered = true;
+
+
+    const correct =
+        currentQuestions[currentQuestion].c;
+
+
+    const buttons =
+        document.querySelectorAll(".answer");
+
+
+    buttons.forEach((btn,i)=>{
+
+        btn.style.pointerEvents = "none";
+
+
+        if(i === correct){
+
+            btn.classList.add("correct");
+
+        }
+
+    });
+
+
+    if(index === correct){
+
+        score++;
+
+        button.classList.add("correct");
+
+    }else{
+
+        button.classList.add("wrong");
+
+    }
+
+
+    document.getElementById("nextButton")
+        .style.display = "inline-block";
+}
+
+
+/* =====================================================
+   NEXT
+===================================================== */
+
+function nextQuestion(){
+
+    currentQuestion++;
+
+
+    if(currentQuestion >= currentQuestions.length){
+
+        showResult();
+
+        return;
+    }
+
+
+    showQuestion();
+}
+
+
+/* =====================================================
+   NATIJA
+===================================================== */
+
+function showResult(){
+
+    document.getElementById("questionCard")
+        .style.display = "none";
+
+
+    document.getElementById("result")
+        .style.display = "block";
+
+
+    document.getElementById("score")
+        .textContent =
+        `${score}/${currentQuestions.length}`;
+
+
+    document.getElementById("tests")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+}
+
+
+/* =====================================================
+   QAYTA ISHLASH
+===================================================== */
+
+function restartQuiz(){
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    answered = false;
+
+
+    document.getElementById("result")
+        .style.display = "none";
+
+
+    document.getElementById("questionCard")
+        .style.display = "block";
+
+
+    showQuestion();
+}
+
+
+/* =====================================================
+   LEVELGA QAYTISH
+===================================================== */
+
+function backToLevels(){
+
+    document.querySelector(".quiz")
+        .style.display = "none";
+
+
+    document.querySelector(".levels")
+        .style.display = "block";
+
+
+    document.getElementById("levels")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+}
+
+
+/* =====================================================
+   KURSLARGA QAYTISH
+===================================================== */
+
+function backToCourses(){
+
+    document.querySelector(".levels")
+        .style.display = "none";
+
+
+    document.querySelector(".quiz")
+        .style.display = "none";
+
+
+    document.querySelector(".courses")
+        .style.display = "block";
+
+
+    document.getElementById("courses")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+}
+
+</script>
+
+</body>
+</html>
